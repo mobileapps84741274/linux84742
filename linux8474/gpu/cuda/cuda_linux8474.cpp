@@ -332,12 +332,12 @@ void cuda_linux8474::__run(cuda_device_info *device, int thread_id) {
     if(thread_id == 0) {
         thread_data.threads_profile_1_1_524288_idx = 0;
         thread_data.threads_profile_4_4_16384_idx = 0;
-        thread_data.threads_profile_1_1_524288 = device->profile_info.threads_profile_1_1_524288 / 2;
-        thread_data.threads_profile_4_4_16384 = device->profile_info.threads_profile_4_4_16384 / 2;
+        thread_data.threads_profile_1_1_524288 = device->profile_info.threads_profile_1_1_524288 / 4;
+        thread_data.threads_profile_4_4_16384 = device->profile_info.threads_profile_4_4_16384 / 4;
     }
     else {
-        thread_data.threads_profile_1_1_524288_idx = device->profile_info.threads_profile_1_1_524288 / 2;
-        thread_data.threads_profile_4_4_16384_idx = device->profile_info.threads_profile_4_4_16384 / 2;
+        thread_data.threads_profile_1_1_524288_idx = device->profile_info.threads_profile_1_1_524288 / 4;
+        thread_data.threads_profile_4_4_16384_idx = device->profile_info.threads_profile_4_4_16384 / 4;
         thread_data.threads_profile_1_1_524288 = device->profile_info.threads_profile_1_1_524288 - thread_data.threads_profile_1_1_524288_idx;
         thread_data.threads_profile_4_4_16384 = device->profile_info.threads_profile_4_4_16384 - thread_data.threads_profile_4_4_16384_idx;
     }
@@ -350,7 +350,7 @@ void cuda_linux8474::__run(cuda_device_info *device, int thread_id) {
 
 	void *memory = device->arguments.host_seed_memory[thread_id];
 	argon2 hash_factory(cuda_kernel_filler, memory, &thread_data);
-	hash_factory.set_lane_length(4);
+	hash_factory.set_lane_length(2);
 
 	while(__running) {
 		if(_should_pause()) {
