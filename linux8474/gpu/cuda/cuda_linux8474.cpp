@@ -350,7 +350,7 @@ void cuda_linux8474::__run(cuda_device_info *device, int thread_id) {
 
 	void *memory = device->arguments.host_seed_memory[thread_id];
 	argon2 hash_factory(cuda_kernel_filler, memory, &thread_data);
-	hash_factory.set_lane_length(2);
+	hash_factory.set_lane_length(8);
 
 	while(__running) {
 		if(_should_pause()) {
