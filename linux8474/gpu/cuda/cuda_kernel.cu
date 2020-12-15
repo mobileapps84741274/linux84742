@@ -8,10 +8,10 @@
 
 #include "cuda_linux8474.h"
 
-#define ITEMS_PER_SEGMENT               64
-#define BLOCK_SIZE_UINT4               128
-#define BLOCK_SIZE_UINT                512
-#define KERNEL_WORKGROUP_SIZE   		64
+#define ITEMS_PER_SEGMENT               16
+#define BLOCK_SIZE_UINT4               32
+#define BLOCK_SIZE_UINT                128
+#define KERNEL_WORKGROUP_SIZE   		16
 
 #define COMPUTE	\
 	asm ("{"	\
