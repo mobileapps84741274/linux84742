@@ -367,7 +367,7 @@ void cuda_linux8474::__run(cuda_device_info *device, int thread_id) {
 					this_thread::sleep_for(chrono::milliseconds(100));
 					continue;
 				}
-				hash_factory.set_seed_memory_offset(34 * ARGON2_BLOCK_SIZE);
+				hash_factory.set_seed_memory_offset(84 * ARGON2_BLOCK_SIZE);
 				hash_factory.set_threads(thread_data.threads_profile_1_1_524288);
 			}
 			else {
@@ -375,7 +375,7 @@ void cuda_linux8474::__run(cuda_device_info *device, int thread_id) {
 					this_thread::sleep_for(chrono::milliseconds(100));
 					continue;
 				}
-				hash_factory.set_seed_memory_offset(48 * ARGON2_BLOCK_SIZE);
+				hash_factory.set_seed_memory_offset(134 * ARGON2_BLOCK_SIZE);
 				hash_factory.set_threads(thread_data.threads_profile_4_4_16384);
 			}
 
